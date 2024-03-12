@@ -10,5 +10,5 @@ by Michael Young and Mingao Sun
 3. Integrate other interactive objects within the scene
 
 ## Software
-1. P5js
-2. Google Mediapipe
+1. [P5js](https://p5js.org)
+2. [Google Mediapipe](https://developers.google.com/mediapipe)
