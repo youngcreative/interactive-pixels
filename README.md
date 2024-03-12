@@ -1,4 +1,4 @@
-# Motion Capture Display Prototype
+# Motion Capture Display
 An interactive motion capture art installation for DG8002 Digital Media Environments
 by Michael Young and Mingao Sun 
 
