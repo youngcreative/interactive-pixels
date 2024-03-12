@@ -1,6 +1,6 @@
 # Motion Capture Display
 An interactive motion capture art installation for DG8002 Digital Media Environments  
-by Michael Young and Mingao Sun 
+by Michael Young, Mingao Sun, Kwaku Poku-Dankwa
 
 ## Goals
 1. Build an interactive motion capture art installation
