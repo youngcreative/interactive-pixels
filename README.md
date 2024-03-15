@@ -11,4 +11,8 @@ by Michael Young, Mingao Sun, Kwaku Poku-Dankwa
 
 ## Software
 1. [P5js](https://p5js.org)
-2. [Google Mediapipe](https://developers.google.com/mediapipe)
+2. ~~[Google Mediapipe](https://developers.google.com/mediapipe)~~
+3. [PoseNet](https://learn.ml5js.org/#/reference/posenet)
+
+## Reference
+[ml5.js Pose Estimation with PoseNet - The Coding Train](https://www.youtube.com/watch?v=OIo-DIOkNVg)
