@@ -23,8 +23,7 @@ let drawAllPoints = false;
 // Setup
 
 function setup() {
-  let canvas = createCanvas(640, 480);
-  canvas.parent('sketch-container');
+  createCanvas(640, 480);
 
   // Create extra layer for animation
   animCanvas = createGraphics(640, 480);
@@ -145,7 +144,7 @@ function draw() {
 // Oscillator functions
 
 function playOscillator() {
-  let freq = map(pose.rightWrist.x, 0, width, 40, 880);
+  let freq = map(pose.rightWrist.x, 0, width, 600, 40);
   osc.freq(freq);
 
   let amp = map(pose.rightWrist.y, 0, height, 1, 0.01);
