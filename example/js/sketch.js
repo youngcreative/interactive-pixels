@@ -7,6 +7,7 @@ let skeleton;
 let animCanvas;
 
 // Sound
+let song;
 
 // Options
 let logPoses = false;
@@ -32,6 +33,9 @@ function setup() {
   // Load ml5
   poseNet = ml5.poseNet(video, { flipHorizontal: true }, modelLoaded);
   poseNet.on("pose", gotPoses);
+
+  // Load music
+  song = loadSound("assets/lucky_dragons_-_power_melody.mp3");
 }
 
 //------------------------------------------
@@ -91,7 +95,7 @@ function draw() {
     let pointRadius = random(5, 20); // Set a random point radius
     animCanvas.strokeWeight(pointRadius);
     animCanvas.ellipse(rightHand.x, rightHand.y, pointRadius);
-    
+
     animCanvas.fill(255, random(50, 200));
     animCanvas.stroke(255, random(50, 200));
     pointRadius = random(5, 20); // Set a different point radius
@@ -120,12 +124,26 @@ function draw() {
     }
   }
 
-  image(animCanvas, 0, 0);
+
+  image(animCanvas, 0, 0); // Draw animation canvas
   if (random(1) < 0.08) {
+    // Clear randomly
     animCanvas.clear();
   }
   drawDiagnosticInfo(); // Call framerate function
 }
+
+
+//------------------------------------------
+// Toggle song when mouse is pressed.
+
+  function mousePressed() {
+    if (song.isPlaying()) {
+      song.stop();
+    } else {
+      song.play();
+    }
+  }
 
 //------------------------------------------
 // Mirror video
