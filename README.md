@@ -17,11 +17,11 @@ Our project is geared towards visitors of multimedia exhibitions, interactive ar
 2. [Google Mediapipe](https://developers.google.com/mediapipe) for gesture detection
 3. [ml5 PoseNet](https://learn.ml5js.org/#/reference/posenet) for simplified gesture detection
 4. Native web languages (HTML, CSS, JavaScript)
-5. Third-party libraries Audio processing libraries for triggering sound effects based on user actions.
+5. Third-party audio processing libraries for triggering sound effects based on user actions
 
 ## Examples of use cases:
-- Multimedia exhibitions: Visitors to art exhibitions can interact with digital artworks through facial expressions and gestures, and trigger visual and audio effects based on their movements.
-- Interactive Public Spaces: In public spaces such as shopping malls or parks, passersby can interact with interactive displays projected onto walls or screens to create interesting and dynamic interactions.
+- Multimedia exhibitions: Visitors to art exhibitions can interact with digital artworks through facial expressions or gestures, and trigger visual and audio effects based on their movements.
+- Interactive public spaces: In public spaces such as shopping malls or parks, passersby can interact with interactive displays projected onto walls or screens to create interesting and dynamic interactions.
 - Educational installations: Schools or museums can utilize interactive installations for educational activities.
 
 ## P5js demos
