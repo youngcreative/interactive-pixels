@@ -25,9 +25,9 @@ Our project is geared towards visitors of multimedia exhibitions, interactive ar
 - Educational installations: Schools or museums can utilize interactive installations for educational activities.
 
 ## P5js demos
-Demo 1: [https://editor.p5js.org/michaeliyoung/sketches/tHIgARung](https://editor.p5js.org/michaeljyoung/sketches/tHIqARunp)  
-Demo 2: [https://editor.p5js.org/Satomeguri/sketches/0931ktdMR](https://editor.p5js.org/Satomeguri/sketches/O931ktdMR)  
-Demo 3: [https://editor.p5is.org/michaeliyoung/full/fixZAwaVl](https://editor.p5js.org/michaeljyoung/sketches/flxZAwaVI)  
+Demo 1: [https://editor.p5js.org/michaeljyoung/sketches/tHIqARunp](https://editor.p5js.org/michaeljyoung/sketches/tHIqARunp)    
+Demo 2: [https://editor.p5js.org/Satomeguri/sketches/O931ktdMR](https://editor.p5js.org/Satomeguri/sketches/O931ktdMR)  
+Demo 3: [https://editor.p5js.org/michaeljyoung/sketches/flxZAwaVI](https://editor.p5js.org/michaeljyoung/sketches/flxZAwaVI)  
 
 ## Reference
 - [ml5.js Pose Estimation with PoseNet - The Coding Train](https://www.youtube.com/watch?v=OIo-DIOkNVg)  
