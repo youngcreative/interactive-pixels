@@ -79,7 +79,7 @@ function dropdownMenu() {
 
 //------------------------------------------
 // Suspend audio until mouse press in canvas
-function mousePressed() {
+function touchStarted() {
   // Start audio on user gesture
   if (!p5jsAudio) {
     userStartAudio();
