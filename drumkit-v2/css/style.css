@@ -11,6 +11,14 @@ canvas {
     display: block;
 }
 
+a {
+    color: #5AD8F1;
+}
+
+a:visited {
+    color: #BB96E0;
+}
+
 #drumkit {
     position: relative;
 }
