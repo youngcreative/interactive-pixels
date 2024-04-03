@@ -1,0 +1,26 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    max-width: 800px;
+    width: 85%;
+    margin: 10px auto;
+    background: #000000;
+    color: #CCCCCC;
+}
+
+canvas {
+    display: block;
+}
+
+#drumkit {
+    position: relative;
+}
+
+#sketch-container {
+    position: absolute;
+    top: 0;
+}
+
+#styleSelect-container {
+    position: absolute;
+    top: 0;
+}
