@@ -130,3 +130,21 @@ function drawDiagnosticInfo() {
   textSize(12);
   text("FPS: " + int(frameRate()), 75, 15);
 }
+
+//------------------------------------------
+// Keyboard shortcuts
+
+function keyReleased() {
+  if (key == "s") {
+    drawSkeleton = !drawSkeleton;
+  }
+  if (key == "v") {
+    drawAllPoints = !drawAllPoints;
+  }
+  if (key == "f") {
+    drawFramerate = !drawFramerate;
+  }
+  if (key == "p") {
+    drawParticles = !drawParticles;
+  }
+}

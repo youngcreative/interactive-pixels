@@ -1,4 +1,17 @@
-//------------------------------------------
+/* *******************************************************
+ 
+ Drumkit.cloud
+ 
+ Michael Young, Mingao Sun, and Kwaku Poku-Dankwa, 2024.
+ 
+ Shortcuts
+ Press f to toggle Framerate
+ Press s to toggle Skeleton lines
+ Press v to toggle PoseNet vector points
+ Press p to toggle Particles
+  
+ * ******************************************************* */
+
 // Global variables
 let video;
 let poseNet;
@@ -19,11 +32,13 @@ let snarePlayed = false;
 
 // Options
 let logPoses = false;
-let drawSkeleton = true;
-let drawAllPoints = true;
-// let appWidth = windowWidth;
-let appWidth = 900;
-let appHeight = (appWidth * 0.75);
+let drawSkeleton = false;
+let drawAllPoints = false;
+let drawFramerate = true;
+let drawParticles = true;
+// let appWidth = window.innerWidth;
+let appWidth = 800;
+let appHeight = appWidth * 0.75;
 
 //------------------------------------------
 // Setup
@@ -107,25 +122,31 @@ function draw() {
     }
 
     // Draw skeleton on body
-    if (drawSkeleton == true) {
+    if (drawSkeleton) {
       for (let i = 0; i < skeleton.length; i++) {
         let a = skeleton[i][0];
-        let b = skeleton[i][0];
-        strokeWeight(2);
+        let b = skeleton[i][1];
+        strokeWeight(3);
         stroke("white");
         line(a.position.x, a.position.y, b.position.x, b.position.y);
       }
+      // Draw a head using the placement of the nose
+      strokeWeight(3);
+      stroke("white");
+      noFill();
+      circle(pose.nose.x, pose.nose.y - (d/1.5), d * 3);
     }
-
+    
     // Set coordinates of particle emitters and run
     rightEmitter.origin.set(rightHand.x, rightHand.y, 0);
     rightEmitter.addParticle();
-    rightEmitter.run();
-    
     leftEmitter.origin.set(leftHand.x, leftHand.y, 0);
     leftEmitter.addParticle();
-    leftEmitter.run();
-    
+    if (drawParticles) {
+      rightEmitter.run();
+      leftEmitter.run();
+    }
+
     // Set the drum style
     setDrumStyle();
 
@@ -223,5 +244,7 @@ function draw() {
     describe('Click or tap the video to enable audio.');
   }
 
-  drawDiagnosticInfo(); // Call framerate function
+  if (drawFramerate) {
+    drawDiagnosticInfo(); // Call framerate function
+  }
 }
