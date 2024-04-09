@@ -63,6 +63,9 @@ function setup() {
 
   // Initiate dropdown menu
   dropdownMenu();
+  
+  // Accessible description
+  describe('Five black elipses are overlayed on webcam output. When your hands touch the elipses they flash white and play a sound.');
 }
 
 //------------------------------------------
@@ -219,8 +222,11 @@ function draw() {
     fill("white");
     textAlign(CENTER, CENTER);
     textFont("Arial");
-    text("Click the video to enable audio.", width / 2, height / 6);
+    text("Click or tap the video to enable audio.", width / 2, height / 6);
     pop();
+
+    // Accessible description
+    describe('Click or tap the video to enable audio.');
   }
 
   drawDiagnosticInfo(); // Call framerate function
