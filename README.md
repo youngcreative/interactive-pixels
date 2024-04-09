@@ -7,7 +7,7 @@ by Michael J. Young, Mingao Sun, Kwaku Poku-Dankwa
 	- Use motion to drive animation
 	- Use motion to control sound / create a simple synthesizer
 2. Use a digital projector and webcam to capture motion and project the artwork
-3. Integrate other interactive objects within the scene (stretch goal).
+3. Integrate interactive objects within the scene.
 
 ## Technology Stack:
 1. [P5js](https://p5js.org) for graphics and sound
@@ -25,4 +25,7 @@ Demo 3: [https://editor.p5js.org/michaeljyoung/sketches/flxZAwaVI](https://edito
 - [User interaction to iniate sound in modern browsers](https://stackoverflow.com/questions/63152115/p5-js-wont-working-without-user-interaction)
 
 ## Notes and recommendations
-In building this project, we initially planned on using Google Mediapipe as an AI motion capture model (you can see an example of this in [demo 2](https://editor.p5js.org/Satomeguri/sketches/O931ktdMR)). However, since Mediapipe is intended to interpret gestures, we found PoseNet as a lightweight alternative with a faster response time.
+In building this project, we initially planned on using Google Mediapipe as an AI motion capture model (you can see an example of this in [demo 2](https://editor.p5js.org/Satomeguri/sketches/O931ktdMR)). However, since Mediapipe is intended to interpret gestures, we found PoseNet as a lightweight alternative with a faster response time.  
+
+## Issues
+Displaying the fullscreen canvas is not currently working, as the webcam video output is scaled inconsistently with the rest of the canvas. A possible remedy is to [create the canvas using WEBGL](https://p5js.org/reference/#/p5/createCanvas) at VGA or SVGA resolution, and then scale it using the [resizeCanvas function](https://p5js.org/reference/#/p5/resizeCanvas). A working example is [karts-posenet-drawing_a](https://editor.p5js.org/sojamo/sketches/03S3DVkFl) by [sojamo](https://editor.p5js.org/sojamo/sketches), however the PoseNet implementation is different, and the current sketch would require substantial changes.
