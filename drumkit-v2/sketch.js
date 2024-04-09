@@ -4,8 +4,8 @@ let video;
 let poseNet;
 let pose;
 let skeleton;
-let animCanvas;
 let drums = [];
+let emitters = [];
 
 // Sound
 let p5jsAudio = false;
@@ -36,10 +36,6 @@ function setup() {
   let canvas = createCanvas(appWidth, appHeight);
   canvas.parent('sketch-container');
 
-  // Create extra layer for animation
-  animCanvas = createGraphics(appWidth, appHeight);
-  animCanvas.clear();
-
   // Load video
   video = createCapture(VIDEO);
   video.style("transform", "scale(-1,1)");
@@ -63,7 +59,14 @@ function setup() {
 
   // Initiate dropdown menu
   dropdownMenu();
-  
+
+
+  // Particle emitters
+  emitter = new Emitter();
+  rightEmitter = new Emitter(createVector(width * 2, height * 2)); // Create off canvas-bounds
+  leftEmitter = new Emitter(createVector(width * 2, height * 2)); // Create off canvas-bounds
+
+
   // Accessible description
   describe('Five black elipses are overlayed on webcam output. When your hands touch the elipses they flash white and play a sound.');
 }
@@ -93,19 +96,6 @@ function draw() {
     fill(0, 0, 0, 75);
     rect(0, 0, width, height);
 
-    // Draw circles on hands
-    animCanvas.fill(255, random(50, 200)); // Set a fill with random opacity
-    animCanvas.stroke(255, random(50, 200)); // Set a stroke with random opacity
-    let pointRadius = random(5, 20); // Set a random point radius
-    animCanvas.strokeWeight(pointRadius);
-    animCanvas.ellipse(rightHand.x, rightHand.y, pointRadius);
-
-    animCanvas.fill(255, random(50, 200));
-    animCanvas.stroke(255, random(50, 200));
-    pointRadius = random(5, 20); // Set a different point radius
-    animCanvas.strokeWeight(pointRadius);
-    animCanvas.ellipse(leftHand.x, leftHand.y, pointRadius); //
-
     // Draw all possible PoseNet points on body
     if (drawAllPoints == true) {
       for (let i = 0; i < pose.keypoints.length; i++) {
@@ -127,6 +117,16 @@ function draw() {
       }
     }
 
+    // Set coordinates of particle emitters and run
+    rightEmitter.origin.set(rightHand.x, rightHand.y, 0);
+    rightEmitter.addParticle();
+    rightEmitter.run();
+    
+    leftEmitter.origin.set(leftHand.x, leftHand.y, 0);
+    leftEmitter.addParticle();
+    leftEmitter.run();
+    
+    // Set the drum style
     setDrumStyle();
 
     // Draw kick drum
@@ -209,12 +209,6 @@ function draw() {
       specialPlayed = false;
     }
   } // Close if (pose loop)
-
-  image(animCanvas, 0, 0); // Draw animation canvas
-  if (random(1) < 0.08) {
-    // Clear randomly
-    animCanvas.clear();
-  }
 
   if (!p5jsAudio) {
     push();
