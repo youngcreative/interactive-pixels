@@ -23,7 +23,12 @@ class Drum {
   }
 
   show() {
-    noStroke();
+    if (darkMode) {
+      stroke("magenta");
+      strokeWeight(1);
+    } else {
+      noStroke();
+    }
     fill(this.brightness, 125);
     ellipse(this.x, this.y, this.r * 3, this.r);
   }

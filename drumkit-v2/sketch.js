@@ -9,7 +9,8 @@
  Press s to toggle Skeleton lines
  Press v to toggle PoseNet vector points
  Press p to toggle Particles
-  
+ Press d to toggle Dark mode
+
  * ******************************************************* */
 
 // Global variables
@@ -33,9 +34,10 @@ let snarePlayed = false;
 // Options
 let logPoses = false;
 let drawSkeleton = false;
-let drawAllPoints = false;
+let drawAllPoints = true;
 let drawFramerate = true;
 let drawParticles = true;
+let darkMode = false;
 // let appWidth = window.innerWidth;
 let appWidth = 800;
 let appHeight = appWidth * 0.75;
@@ -49,7 +51,7 @@ function preload() {
 
 function setup() {
   let canvas = createCanvas(appWidth, appHeight);
-  canvas.parent('sketch-container');
+  canvas.parent("sketch-container");
 
   // Load video
   video = createCapture(VIDEO);
@@ -75,15 +77,15 @@ function setup() {
   // Initiate dropdown menu
   dropdownMenu();
 
-
   // Particle emitters
   emitter = new Emitter();
   rightEmitter = new Emitter(createVector(width * 2, height * 2)); // Create off canvas-bounds
   leftEmitter = new Emitter(createVector(width * 2, height * 2)); // Create off canvas-bounds
 
-
   // Accessible description
-  describe('Five black elipses are overlayed on webcam output. When your hands touch the elipses they flash white and play a sound.');
+  describe(
+    "Five black elipses are overlayed on webcam output. When your hands touch the elipses they flash white and play a sound."
+  );
 }
 
 //------------------------------------------
@@ -108,11 +110,15 @@ function draw() {
     let leftHand = p5.Vector.lerp(leftElbowV1, leftWristV2, 1.6);
 
     // Draw black overlay on canvas
-    fill(0, 0, 0, 75);
+    if (darkMode) {
+      fill(0, 0, 0, 220);
+    } else {
+      fill(0, 0, 0, 75);
+    }
     rect(0, 0, width, height);
 
     // Draw all possible PoseNet points on body
-    if (drawAllPoints == true) {
+    if (drawAllPoints) {
       for (let i = 0; i < pose.keypoints.length; i++) {
         let x = pose.keypoints[i].position.x;
         let y = pose.keypoints[i].position.y;
@@ -127,16 +133,17 @@ function draw() {
         let a = skeleton[i][0];
         let b = skeleton[i][1];
         strokeWeight(3);
-        stroke("white");
+        stroke("cyan");
         line(a.position.x, a.position.y, b.position.x, b.position.y);
       }
-      // Draw a head using the placement of the nose
       strokeWeight(3);
-      stroke("white");
+      stroke("cyan");
       noFill();
-      circle(pose.nose.x, pose.nose.y - (d/1.5), d * 3);
+      circle(pose.nose.x, pose.nose.y - d / 1.5, d * 3);
+      line(pose.rightWrist.x, pose.rightWrist.y, rightHand.x, rightHand.y);
+      line(pose.leftWrist.x, pose.leftWrist.y, leftHand.x, leftHand.y);
     }
-    
+
     // Set coordinates of particle emitters and run
     rightEmitter.origin.set(rightHand.x, rightHand.y, 0);
     rightEmitter.addParticle();
@@ -241,7 +248,7 @@ function draw() {
     pop();
 
     // Accessible description
-    describe('Click or tap the video to enable audio.');
+    describe("Click or tap the video to enable audio.");
   }
 
   if (drawFramerate) {

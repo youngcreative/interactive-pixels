@@ -21,6 +21,7 @@ a:visited {
 
 #drumkit {
     position: relative;
+    height: 600px;
 }
 
 #sketch-container {
@@ -31,4 +32,8 @@ a:visited {
 #styleSelect-container {
     position: absolute;
     top: 0;
+}
+
+.subtle {
+    color: #747474;
 }

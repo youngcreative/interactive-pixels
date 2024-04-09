@@ -65,6 +65,7 @@ function setDrumStyle() {
 function dropdownMenu() {
   // Create a dropdown menu and place it on the canvas.
   styleSelect = createSelect();
+  styleSelect.position(0, 0);
   styleSelect.parent('styleSelect-container');
 
   // Add style options.
@@ -73,13 +74,13 @@ function dropdownMenu() {
   styleSelect.option("Hiphop");
   styleSelect.option("EDM");
 
-  // Set the selected option to "Rock/Punk".
+  // Set the selected option to "EDM".
   styleSelect.selected("EDM");
 }
 
 //------------------------------------------
 // Suspend audio until mouse press in canvas
-function touchStarted() {
+function mousePressed() {
   // Start audio on user gesture
   if (!p5jsAudio) {
     userStartAudio();
@@ -125,7 +126,7 @@ function drawMirroredVideo(x, y) {
 
 function drawDiagnosticInfo() {
   noStroke();
-  fill("white");
+  fill("grey");
   textFont("Verdana");
   textSize(12);
   text("FPS: " + int(frameRate()), 75, 15);
@@ -146,5 +147,8 @@ function keyReleased() {
   }
   if (key == "p") {
     drawParticles = !drawParticles;
+  }
+  if (key == "d") {
+    darkMode = !darkMode;
   }
 }
