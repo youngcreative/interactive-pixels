@@ -2,10 +2,12 @@
 An interactive motion capture drumkit for DG8002 Digital Media Environments  
 by Michael J. Young, Mingao Sun, Kwaku Poku-Dankwa
 
+[View this sketch in the P5js online editor.](https://editor.p5js.org/michaeljyoung/sketches/lqUpzu3Ju)  
+
 ## Goals
 1. Build an interactive motion capture art installation
 	- Use motion to drive animation
-	- Use motion to control sound / create a simple synthesizer
+	- Use motion to control sound / create a simple synthesizer or instrument  
 2. Use a digital projector and webcam to capture motion and project the artwork
 3. Integrate interactive objects within the scene.
 
