@@ -4,6 +4,8 @@ by Michael J. Young, Mingao Sun, Kwaku Poku-Dankwa
 
 [View this sketch in the P5js online editor.](https://editor.p5js.org/michaeljyoung/sketches/yWhQSiiDT)  
 
+![Screenshot drumkit.cloud in dark mode](Screenshot.png)
+
 ## Goals
 1. Build an interactive motion capture art installation
 	- Use motion to drive animation
